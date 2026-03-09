@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SERVINO EVENT MANAGEMENT | Premium Event Services</title>
+  <meta
+    name="description"
+    content="SERVINO EVENT MANAGEMENT delivers premium hospitality management, service staff, stage decoration, food service, photography, videography, and counter setting across Malappuram and Kottakkal."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/ntype82" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root {
+      --brand-cyan: #08c8f2;
+      --brand-black: #000000;
+      --brand-white: #ffffff;
+      --hero-violet: #cc78ff;
+      --hero-pink: #ff7bd2;
+      --soft-white: rgba(255, 255, 255, 0.72);
+      --glass-fill: rgba(255, 255, 255, 0.08);
+      --glass-fill-strong: rgba(255, 255, 255, 0.12);
+      --glass-line: rgba(255, 255, 255, 0.18);
+      --glass-line-soft: rgba(255, 255, 255, 0.1);
+      --red-flow: rgba(220, 38, 38, 0.92);
+      --shadow-deep: 0 24px 100px rgba(0, 0, 0, 0.45);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'NType82', 'Space Grotesk', 'Segoe UI', sans-serif;
+      color: var(--brand-white);
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(8, 200, 242, 0.2), transparent 24%),
+        radial-gradient(circle at 86% 10%, rgba(8, 200, 242, 0.12), transparent 22%),
+        radial-gradient(circle at 72% 82%, rgba(8, 200, 242, 0.08), transparent 24%),
+        linear-gradient(180deg, #010101 0%, #031018 48%, #000000 100%);
+    }
+
+    section[id] {
+      scroll-margin-top: 7rem;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.05));
+      border: 1px solid var(--glass-line);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .glass-strong {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.07));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(180deg, rgba(24, 8, 40, 0.36) 0%, rgba(35, 10, 58, 0.42) 34%, rgba(2, 0, 14, 0.84) 100%),
+        radial-gradient(circle at 22% 24%, rgba(255, 123, 210, 0.34), transparent 30%),
+        radial-gradient(circle at 74% 18%, rgba(204, 120, 255, 0.36), transparent 32%),
+        linear-gradient(135deg, rgba(82, 28, 124, 0.28) 0%, rgba(160, 76, 255, 0.16) 48%, rgba(0, 0, 0, 0.14) 100%);
+    }
+
+    .hero-gradient {
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.2), transparent 20%),
+        linear-gradient(135deg, rgba(255, 176, 228, 0.3) 0%, rgba(226, 134, 255, 0.24) 42%, rgba(56, 14, 102, 0.24) 100%);
+      mix-blend-mode: screen;
+      opacity: 0.72;
+    }
+
+    .hero-photo-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 14%, rgba(222, 194, 255, 0.3), transparent 16%),
+        radial-gradient(circle at 50% 20%, rgba(189, 142, 255, 0.26), transparent 22%),
+        radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.08), transparent 9%),
+        radial-gradient(circle at 18% 24%, rgba(124, 72, 186, 0.2), transparent 26%),
+        radial-gradient(circle at 82% 28%, rgba(162, 89, 255, 0.18), transparent 28%),
+        linear-gradient(180deg, #1d0c34 0%, #160727 34%, #0f041c 66%, #09020f 100%);
+      overflow: hidden;
+    }
+
+    .hero-photo-bg::before {
+      content: 'SERVINO';
+      position: absolute;
+      left: 50%;
+      top: 13%;
+      transform: translateX(-50%);
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4rem, 12vw, 10rem);
+      color: rgba(245, 229, 255, 0.08);
+      letter-spacing: 0.06em;
+      filter: blur(26px);
+      opacity: 0.42;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .hero-photo-bg::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 8%;
+      width: min(64vw, 42rem);
+      height: min(64vw, 42rem);
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.18), transparent 14%),
+        radial-gradient(circle at 50% 50%, rgba(213, 170, 255, 0.18), rgba(175, 114, 255, 0.08) 28%, transparent 58%);
+      filter: blur(42px);
+      opacity: 0.78;
+      pointer-events: none;
+    }
+
+    .hero-mist {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(234, 214, 255, 0.2), transparent 18%),
+        radial-gradient(circle at 44% 26%, rgba(192, 139, 255, 0.1), transparent 22%),
+        radial-gradient(circle at 58% 28%, rgba(223, 177, 255, 0.1), transparent 24%);
+      filter: blur(34px);
+      opacity: 0.86;
+      pointer-events: none;
+    }
+
+    .liquid-blob {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(18px);
+      opacity: 0.46;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.34), rgba(8, 200, 242, 0.26) 34%, rgba(8, 200, 242, 0.04) 74%);
+      animation: blobDrift 20s ease-in-out infinite;
+    }
+
+    .liquid-blob:nth-child(2) {
+      animation-duration: 24s;
+      animation-delay: -5s;
+    }
+
+    .liquid-blob:nth-child(3) {
+      animation-duration: 17s;
+      animation-delay: -8s;
+    }
+
+    .liquid-blob:nth-child(4) {
+      animation-duration: 26s;
+      animation-delay: -3s;
+    }
+
+    .float-soft {
+      animation: waterFloat 7s ease-in-out infinite;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .float-slow {
+      animation: waterFloatSlow 10s ease-in-out infinite;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .glow-line {
+      position: relative;
+    }
+
+    .glow-line::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(8, 200, 242, 0.52), transparent);
+    }
+
+    .brand-logo {
+      display: block;
+      filter: drop-shadow(0 22px 60px rgba(0, 0, 0, 0.35));
+    }
+
+    .hero-title {
+      text-wrap: balance;
+    }
+
+    .hero-stage {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-stage::before,
+    .hero-stage::after {
+      content: '';
+      position: absolute;
+      border-radius: 9999px;
+      pointer-events: none;
+      filter: blur(28px);
+      z-index: -1;
+    }
+
+    .hero-stage::before {
+      inset: 8% 14% auto;
+      height: 10rem;
+      background: radial-gradient(circle, rgba(204, 120, 255, 0.34), transparent 72%);
+      animation: waterFloatSlow 12s ease-in-out infinite;
+    }
+
+    .hero-stage::after {
+      inset: auto 18% 12%;
+      height: 7rem;
+      background: radial-gradient(circle, rgba(255, 123, 210, 0.28), transparent 72%);
+      animation: waterFloat 9s ease-in-out infinite;
+    }
+
+    .hero-script {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: 0.015em;
+      color: rgba(255, 255, 255, 0.12);
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.34);
+      text-shadow:
+        0 0 1px rgba(255, 255, 255, 0.76),
+        0 0 16px rgba(204, 120, 255, 0.56),
+        0 0 30px rgba(255, 123, 210, 0.48),
+        0 18px 44px rgba(0, 0, 0, 0.36);
+      filter: drop-shadow(0 12px 28px rgba(255, 123, 210, 0.16));
+      animation: waterFloat 8s ease-in-out infinite, neonPulse 4.8s ease-in-out infinite;
+    }
+
+    .hero-script .tube-fill {
+      display: inline-block;
+      padding: 0.08em 0.08em 0.12em;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.5) 26%, rgba(255, 255, 255, 0.18) 52%, rgba(255, 123, 210, 0.2) 76%, rgba(204, 120, 255, 0.36) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      text-shadow:
+        0 0 14px rgba(255, 255, 255, 0.32),
+        0 0 30px rgba(204, 120, 255, 0.52),
+        0 0 52px rgba(255, 123, 210, 0.4);
+    }
+
+    .hero-copy {
+      text-shadow: 0 12px 32px rgba(0, 0, 0, 0.34);
+    }
+
+    .gold-name {
+      display: inline-block;
+      background:
+        linear-gradient(180deg, #fff6cf 0%, #ffe08a 24%, #f7c75c 46%, #c98a1c 68%, #fff1b8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow:
+        0 0 16px rgba(255, 224, 138, 0.18),
+        0 10px 24px rgba(0, 0, 0, 0.26);
+      filter: drop-shadow(0 4px 14px rgba(255, 205, 107, 0.18));
+    }
+
+    .eyebrow {
+      letter-spacing: 0.32em;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .service-row,
+    .contact-panel,
+    .media-panel,
+    .info-panel,
+    .cta-button,
+    .cta-cluster,
+    .nav-shell {
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .service-row:hover,
+    .contact-panel:hover,
+    .media-panel:hover,
+    .info-panel:hover,
+    .cta-button:hover,
+    .cta-cluster:hover,
+    .nav-shell:hover {
+      transform: translateY(-4px);
+      border-color: rgba(8, 200, 242, 0.34);
+      box-shadow: 0 24px 90px rgba(0, 0, 0, 0.46);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .desktop-link,
+    .bottom-nav-button {
+      color: rgba(255, 255, 255, 0.66);
+    }
+
+    .desktop-link.active,
+    .bottom-nav-button.active {
+      color: #ffffff;
+    }
+
+    .bottom-nav-shell {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .bottom-nav-shell::before {
+      content: '';
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: 18%;
+      height: 54%;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.3), rgba(220, 38, 38, 0.14) 40%, transparent 74%);
+      filter: blur(10px);
+      animation: redCurrent 8s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .bottom-nav-shell::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bottom-indicator {
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 0;
+      border-radius: 1.4rem;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.92), rgba(255, 255, 255, 0.14));
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 16px 42px rgba(220, 38, 38, 0.34);
+      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), width 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bottom-indicator::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.26) 50%, transparent 100%);
+      transform: translateX(-120%);
+      animation: indicatorSweep 3s linear infinite;
+    }
+
+    .bottom-nav-button {
+      position: relative;
+      z-index: 2;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .bottom-nav-button:active {
+      transform: scale(0.97);
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, var(--brand-cyan), #8befff);
+      color: #000000;
+    }
+
+    .cta-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .cta-cluster {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 0.9rem;
+      border-radius: 1.75rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 24px 72px rgba(0, 0, 0, 0.34);
+    }
+
+    .cta-button {
+      position: relative;
+      gap: 0.9rem;
+      min-width: min(100%, 15rem);
+      padding: 0.95rem 1.2rem;
+      overflow: hidden;
+    }
+
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .cta-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 9999px;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .cta-primary .cta-icon {
+      background: rgba(255, 255, 255, 0.38);
+    }
+
+    .cta-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .cta-note {
+      margin-top: 0.18rem;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+
+    @media (min-width: 640px) {
+      .cta-cluster {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    .service-grid {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .service-row + .service-row {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .video-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .video-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 24%, transparent 74%, rgba(8, 200, 242, 0.08));
+    }
+
+    .volume-toggle {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
+      color: #ffffff;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.36);
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .volume-toggle:hover {
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+    }
+
+    .volume-toggle:active {
+      transform: scale(0.95);
+    }
+
+    .volume-toggle .volume-icon {
+      position: absolute;
+      font-size: 0.95rem;
+      transition: opacity 0.28s ease, transform 0.28s ease, filter 0.28s ease;
+    }
+
+    .volume-toggle .icon-on {
+      opacity: 0;
+      transform: scale(0.72) rotate(-12deg);
+      filter: blur(3px);
+    }
+
+    .volume-toggle .icon-off {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+      filter: blur(0);
+    }
+
+    .volume-toggle.is-on {
+      background: linear-gradient(135deg, rgba(8, 200, 242, 0.94), rgba(255, 255, 255, 0.16));
+      color: #000000;
+      border-color: rgba(139, 239, 255, 0.44);
+      box-shadow: 0 18px 42px rgba(8, 200, 242, 0.24);
+    }
+
+    .volume-toggle.is-on .icon-on {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+      filter: blur(0);
+    }
+
+    .volume-toggle.is-on .icon-off {
+      opacity: 0;
+      transform: scale(0.72) rotate(10deg);
+      filter: blur(3px);
+    }
+
+    .volume-toggle-ring {
+      position: absolute;
+      inset: -0.28rem;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      opacity: 0;
+      transform: scale(0.84);
+      pointer-events: none;
+    }
+
+    .volume-toggle.pulse .volume-toggle-ring {
+      animation: volumePulse 0.65s ease-out;
+    }
+
+    @keyframes blobDrift {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      25% {
+        transform: translate3d(28px, -24px, 0) scale(1.04);
+      }
+      50% {
+        transform: translate3d(-24px, 18px, 0) scale(0.96);
+      }
+      75% {
+        transform: translate3d(18px, 22px, 0) scale(1.02);
+      }
+    }
+
+    @keyframes waterFloat {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate3d(0, -6px, 0) rotate(-0.35deg);
+      }
+      50% {
+        transform: translate3d(0, 4px, 0) rotate(0.35deg);
+      }
+      75% {
+        transform: translate3d(0, -3px, 0) rotate(-0.2deg);
+      }
+    }
+
+    @keyframes waterFloatSlow {
+      0%, 100% {
+        transform: translate3d(0, 0, 0);
+      }
+      33% {
+        transform: translate3d(0, -8px, 0);
+      }
+      66% {
+        transform: translate3d(0, 5px, 0);
+      }
+    }
+
+    @keyframes redCurrent {
+      0%, 100% {
+        transform: translateX(-10%) scaleX(0.96);
+        opacity: 0.58;
+      }
+      50% {
+        transform: translateX(10%) scaleX(1.04);
+        opacity: 0.92;
+      }
+    }
+
+    @keyframes indicatorSweep {
+      from {
+        transform: translateX(-120%);
+      }
+      to {
+        transform: translateX(120%);
+      }
+    }
+
+    @keyframes neonPulse {
+      0%, 100% {
+        text-shadow:
+          0 0 1px rgba(255, 255, 255, 0.8),
+          0 0 18px rgba(204, 120, 255, 0.56),
+          0 0 34px rgba(255, 123, 210, 0.48),
+          0 16px 40px rgba(0, 0, 0, 0.34);
+      }
+      50% {
+        text-shadow:
+          0 0 1px rgba(255, 255, 255, 0.92),
+          0 0 22px rgba(204, 120, 255, 0.72),
+          0 0 46px rgba(255, 123, 210, 0.62),
+          0 18px 42px rgba(0, 0, 0, 0.36);
+      }
+    }
+
+    @keyframes volumePulse {
+      0% {
+        opacity: 0;
+        transform: scale(0.84);
+      }
+      35% {
+        opacity: 0.75;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.28);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .liquid-blob,
+      .float-soft,
+      .float-slow,
+      .bottom-nav-shell::before,
+      .bottom-indicator::before,
+      .reveal,
+      .service-row,
+      .contact-panel,
+      .media-panel,
+      .info-panel,
+      .cta-button,
+      .nav-shell {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="selection:bg-cyan-300/70 selection:text-black">
+  <audio id="click-sound" preload="auto">
+    <source src="https://cdn.discordapp.com/attachments/1479849665334612110/1479923472124608604/denielcz-immersivecontrol-button-click-sound-463065.mp3?ex=69b070a3&is=69af1f23&hm=67c32281fed7c993fba2b4c6b22b4bee562b1e93d5c94fe5552685c8070e5bb2&" type="audio/mpeg" />
+  </audio>
+
+  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div class="liquid-blob left-[-6rem] top-[8rem] h-72 w-72"></div>
+    <div class="liquid-blob right-[-8rem] top-[16rem] h-96 w-96"></div>
+    <div class="liquid-blob bottom-[18rem] left-[6%] h-60 w-60"></div>
+    <div class="liquid-blob bottom-[-6rem] right-[10%] h-[26rem] w-[26rem]"></div>
+  </div>
+
+  <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+    <nav class="nav-shell glass mx-auto hidden max-w-7xl items-center rounded-full px-6 py-4 text-sm md:grid md:grid-cols-[1fr_auto_1fr]">
+      <div class="flex items-center gap-6 justify-self-start text-white/72">
+        <a href="#home" class="desktop-link active transition hover:text-white" data-target="home">Home</a>
+        <a href="#services" class="desktop-link transition hover:text-white" data-target="services">Services</a>
+        <a href="#venue" class="desktop-link transition hover:text-white" data-target="venue">Venue</a>
+      </div>
+      <a href="#home" class="float-soft justify-self-center text-center" aria-label="SERVINO EVENT MANAGEMENT home">
+        <span class="block text-[0.7rem] font-semibold uppercase tracking-[0.42em] text-white/54">SERVINO</span>
+        <span class="block text-sm font-semibold uppercase tracking-[0.28em] text-white">EVENT MANAGEMENT</span>
+      </a>
+      <div class="flex items-center justify-self-end gap-3">
+        <a href="#contact" class="desktop-link transition hover:text-white" data-target="contact">Contact</a>
+        <a href="https://www.instagram.com/servino_events_management?igsh=MWd5YmhvMmtmYWFoMg==" target="_blank" rel="noreferrer" class="cta-button cta-secondary inline-flex items-center rounded-full px-4 py-2 font-semibold">
+          <i class="fa-brands fa-instagram mr-2 text-cyan-300"></i>
+          Instagram
+        </a>
+        <a href="tel:+918921575385" class="cta-button cta-secondary inline-flex items-center rounded-full px-4 py-2 font-semibold">Call Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="relative flex min-h-screen items-end overflow-hidden">
+      <div class="hero-photo-bg"></div>
+      <div class="hero-mist"></div>
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="hero-gradient absolute inset-0"></div>
+      <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+      <div class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center justify-center px-4 pb-28 pt-32 text-center sm:px-6 lg:px-8">
+        <div class="hero-stage reveal is-visible max-w-5xl">
+          <p class="eyebrow float-soft text-xs font-semibold uppercase sm:text-sm">Signature Atmosphere</p>
+          <h1 class="hero-script hero-title mx-auto mt-4 text-[3.2rem] sm:text-[4.9rem] lg:text-[7.1rem] xl:text-[8.4rem]">
+            <span class="tube-fill">Servino Events Management</span>
+          </h1>
+          <img
+            src="https://raw.githubusercontent.com/zorozx1020-cell/SERVINO-EVENT-MANAGEMENT/4292133968c4c542d44c4139805e13adbdc48073/573311407_17902752153295109_6170009152305214716_n-Picsart-AiImageEnhancer.png"
+            alt="SERVINO EVENT MANAGEMENT color logo"
+            class="brand-logo float-slow mx-auto mt-7 h-44 w-auto object-contain sm:h-52 lg:h-64"
+          />
+          <div class="hero-copy float-soft mx-auto mt-8 max-w-3xl rounded-[2rem] px-6 py-5 sm:px-8 sm:py-6">
+            <p class="mx-auto max-w-3xl text-sm leading-8 text-white/82 sm:text-base lg:text-lg">
+              SERVINO EVENT MANAGEMENT creates refined celebrations in Malappuram and Kottakkal with disciplined service teams, cinematic stage styling, elegant hospitality flow, and a premium visual language built for unforgettable events.
+            </p>
+            <p class="mx-auto mt-3 max-w-3xl text-sm leading-8 text-white/68 sm:text-base">
+              The atmosphere is designed to feel intimate and grand at the same time, with white architectural depth, suspended floral layers, warm candle-style light, and chandelier glow that makes every stage feel immersive.
+            </p>
+          </div>
+          <div class="mt-8 flex justify-center">
+            <div class="cta-cluster float-soft w-full max-w-4xl">
+              <a href="tel:+918921575385" class="cta-button cta-primary inline-flex items-center rounded-[1.4rem] text-left font-semibold">
+                <span class="cta-icon">
+                  <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <span class="cta-copy">
+                  <span class="cta-label">Call Now</span>
+                  <span class="cta-note">Direct Event Enquiry</span>
+                </span>
+              </a>
+              <a href="https://wa.me/918921575385" target="_blank" rel="noreferrer" class="cta-button cta-secondary inline-flex items-center rounded-[1.4rem] text-left font-semibold">
+                <span class="cta-icon text-cyan-300">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </span>
+                <span class="cta-copy">
+                  <span class="cta-label">WhatsApp Midhlaj</span>
+                  <span class="cta-note">Fast Reply Support</span>
+                </span>
+              </a>
+              <a href="https://www.instagram.com/servino_events_management?igsh=MWd5YmhvMmtmYWFoMg==" target="_blank" rel="noreferrer" class="cta-button cta-secondary inline-flex items-center rounded-[1.4rem] text-left font-semibold">
+                <span class="cta-icon text-cyan-300">
+                  <i class="fa-brands fa-instagram"></i>
+                </span>
+                <span class="cta-copy">
+                  <span class="cta-label">Follow Instagram</span>
+                  <span class="cta-note">Latest Event Moments</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="glow-line relative py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="eyebrow text-xs font-semibold uppercase">Core Services</p>
+          <h2 class="mt-4 text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">One premium team for every event detail.</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-sm leading-8 text-white/70 sm:text-base">
+            Every service is structured to keep the celebration polished, timely, and visually elevated from guest arrival to final coverage.
+          </p>
+        </div>
+
+        <div class="service-grid reveal mt-12 overflow-hidden rounded-[2rem]">
+          <div class="service-row float-soft grid gap-4 px-6 py-6 sm:grid-cols-[80px_1fr_auto] sm:items-center sm:px-8">
+            <div class="text-3xl text-cyan-300"><i class="fa-solid fa-hands-holding-circle"></i></div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Hospitality Management</h3>
+              <p class="mt-2 text-sm leading-7 text-white/66">Professional guest handling with disciplined coordination, reception flow, and smooth front-of-house support.</p>
+            </div>
+            <span class="text-sm uppercase tracking-[0.25em] text-white/44">01</span>
+          </div>
+          <div class="service-row float-soft grid gap-4 px-6 py-6 sm:grid-cols-[80px_1fr_auto] sm:items-center sm:px-8">
+            <div class="text-3xl text-cyan-300"><i class="fa-solid fa-user-tie"></i></div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Service Boys</h3>
+              <p class="mt-2 text-sm leading-7 text-white/66">Well-managed service staff prepared for guest support, dining flow, and venue discipline throughout the event.</p>
+            </div>
+            <span class="text-sm uppercase tracking-[0.25em] text-white/44">02</span>
+          </div>
+          <div class="service-row float-soft grid gap-4 px-6 py-6 sm:grid-cols-[80px_1fr_auto] sm:items-center sm:px-8">
+            <div class="text-3xl text-cyan-300"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Stage Decoration</h3>
+              <p class="mt-2 text-sm leading-7 text-white/66">Architectural stage styling with layered florals, elegant lighting, and premium depth for a memorable visual centerpiece.</p>
+            </div>
+            <span class="text-sm uppercase tracking-[0.25em] text-white/44">03</span>
+          </div>
+          <div class="service-row float-soft grid gap-4 px-6 py-6 sm:grid-cols-[80px_1fr_auto] sm:items-center sm:px-8">
+            <div class="text-3xl text-cyan-300"><i class="fa-solid fa-utensils"></i></div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Food Service</h3>
+              <p class="mt-2 text-sm leading-7 text-white/66">Structured service rhythm designed to keep dining elegant, efficient, and comfortable for every guest.</p>
+            </div>
+            <span class="text-sm uppercase tracking-[0.25em] text-white/44">04</span>
+          </div>
+          <div class="service-row float-soft grid gap-4 px-6 py-6 sm:grid-cols-[80px_1fr_auto] sm:items-center sm:px-8">
+            <div class="text-3xl text-cyan-300"><i class="fa-solid fa-camera-retro"></i></div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Photography &amp; Videography</h3>
+              <p class="mt-2 text-sm leading-7 text-white/66">Cinematic visual capture that protects every angle, expression, and atmosphere with polished framing.</p>
+            </div>
+            <span class="text-sm uppercase tracking-[0.25em] text-white/44">05</span>
+          </div>
+          <div class="service-row float-soft grid gap-4 px-6 py-6 sm:grid-cols-[80px_1fr_auto] sm:items-center sm:px-8">
+            <div class="text-3xl text-cyan-300"><i class="fa-solid fa-table-list"></i></div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Counter Setting</h3>
+              <p class="mt-2 text-sm leading-7 text-white/66">Neat presentation planning for counters, welcome points, and service zones that keeps the venue organized and premium.</p>
+            </div>
+            <span class="text-sm uppercase tracking-[0.25em] text-white/44">06</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="venue" class="glow-line relative py-20 sm:py-24">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+        <div class="reveal info-panel glass rounded-[2rem] p-8 sm:p-10 float-soft">
+          <p class="eyebrow text-xs font-semibold uppercase">Venue Presence</p>
+          <h2 class="mt-4 text-3xl font-semibold text-white sm:text-4xl">A welcome atmosphere that feels cinematic from the first look.</h2>
+          <p class="mt-5 text-sm leading-8 text-white/72 sm:text-base">
+            The featured venue direction uses architectural white arches to create depth, while crimson and white florals fall across the ceiling like floating layers above the stage.
+          </p>
+          <p class="mt-4 text-sm leading-8 text-white/72 sm:text-base">
+            Warm candle-style pillar lighting at the base works with chandelier highlights overhead, giving the full space a soft, polished glow that feels both traditional and modern.
+          </p>
+          <p class="mt-4 text-sm leading-8 text-white/72 sm:text-base">
+            This is not simply a decorated backdrop. It becomes a complete immersive environment that elevates photography, guest impression, and stage presence at the same time.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3 text-sm text-white/76">
+            <span class="glass rounded-full px-4 py-2 float-soft"><i class="fa-solid fa-location-dot mr-2 text-cyan-300"></i>Malappuram, Kottakkal</span>
+            <span class="glass rounded-full px-4 py-2 float-soft"><i class="fa-solid fa-sparkles mr-2 text-cyan-300"></i>Liquid Glass Styling</span>
+            <span class="glass rounded-full px-4 py-2 float-soft"><i class="fa-solid fa-video mr-2 text-cyan-300"></i>Looping Showcase Video</span>
+          </div>
+        </div>
+
+        <div class="reveal media-panel glass-strong rounded-[2rem] p-4 sm:p-5 float-slow">
+          <div class="video-panel overflow-hidden rounded-[1.6rem]">
+            <video id="showcase-video" class="h-full w-full object-cover" autoplay muted loop playsinline preload="auto">
+              <source src="https://ik.imagekit.io/servino/VN20260310_035625.mp4" type="video/mp4" />
+            </video>
+            <button
+              id="volume-toggle"
+              class="volume-toggle"
+              type="button"
+              aria-label="Turn sound on"
+              aria-pressed="false"
+            >
+              <span class="volume-toggle-ring"></span>
+              <i class="volume-icon icon-off fa-solid fa-volume-xmark"></i>
+              <i class="volume-icon icon-on fa-solid fa-volume-high"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="relative py-20 pb-32 sm:py-24 sm:pb-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="eyebrow text-xs font-semibold uppercase">Direct Contact</p>
+          <h2 class="mt-4 text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">Welcome your guests with the SERVINO standard.</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-sm leading-8 text-white/70 sm:text-base">
+            Call or message the team directly for premium event support, staffing, decor planning, visual coordination, and celebration management.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+          <article class="contact-panel glass rounded-[2rem] p-8 float-soft">
+            <img
+              src="https://raw.githubusercontent.com/zorozx1020-cell/SERVINO-EVENT-MANAGEMENT/4292133968c4c542d44c4139805e13adbdc48073/573311407_17902752153295109_6170009152305214716_n-Picsart-AiImageEnhancer.png"
+              alt="SERVINO EVENT MANAGEMENT color logo"
+              class="brand-logo h-20 w-auto object-contain"
+            />
+            <p class="eyebrow mt-6 text-xs font-semibold uppercase">Primary Contact</p>
+            <h3 class="gold-name mt-4 text-2xl font-semibold">Muhammad Midhlaj</h3>
+            <p class="mt-3 text-sm leading-7 text-white/70">Direct event enquiries, planning discussions, premium service coordination, and fast WhatsApp response.</p>
+            <div class="mt-6 space-y-3 text-sm text-white/80">
+              <p><i class="fa-solid fa-phone mr-3 text-cyan-300"></i><a href="tel:+918921575385" class="hover:text-white">+91 8921575385</a></p>
+              <p><i class="fa-brands fa-whatsapp mr-3 text-cyan-300"></i><a href="https://wa.me/918921575385" target="_blank" rel="noreferrer" class="hover:text-white">WhatsApp Muhammad Midhlaj</a></p>
+            </div>
+            <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a href="tel:+918921575385" class="cta-button cta-primary inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold">
+                <i class="fa-solid fa-phone-volume mr-2"></i>
+                Call Midhlaj
+              </a>
+              <a href="https://wa.me/918921575385" target="_blank" rel="noreferrer" class="cta-button cta-secondary inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold">
+                <i class="fa-brands fa-whatsapp mr-2 text-cyan-300"></i>
+                WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <article class="contact-panel glass rounded-[2rem] p-8 float-slow">
+            <img
+              src="https://raw.githubusercontent.com/zorozx1020-cell/SERVINO-EVENT-MANAGEMENT/4292133968c4c542d44c4139805e13adbdc48073/573311407_17902752153295109_6170009152305214716_n-Picsart-AiImageEnhancer.png"
+              alt="SERVINO EVENT MANAGEMENT color logo"
+              class="brand-logo h-20 w-auto object-contain"
+            />
+            <p class="eyebrow mt-6 text-xs font-semibold uppercase">Secondary Contact</p>
+            <h3 class="gold-name mt-4 text-2xl font-semibold">Muhammad Nizam</h3>
+            <p class="mt-3 text-sm leading-7 text-white/70">Scheduling support, follow-up assistance, event coordination updates, and direct WhatsApp communication.</p>
+            <div class="mt-6 space-y-3 text-sm text-white/80">
+              <p><i class="fa-solid fa-phone mr-3 text-cyan-300"></i><a href="tel:+917907840991" class="hover:text-white">+91 7907840991</a></p>
+              <p><i class="fa-brands fa-whatsapp mr-3 text-cyan-300"></i><a href="https://wa.me/917907840991" target="_blank" rel="noreferrer" class="hover:text-white">WhatsApp Muhammad Nizam</a></p>
+            </div>
+            <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a href="tel:+917907840991" class="cta-button cta-primary inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold">
+                <i class="fa-solid fa-phone-volume mr-2"></i>
+                Call Nizam
+              </a>
+              <a href="https://wa.me/917907840991" target="_blank" rel="noreferrer" class="cta-button cta-secondary inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold">
+                <i class="fa-brands fa-whatsapp mr-2 text-cyan-300"></i>
+                WhatsApp
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="fixed inset-x-0 bottom-4 z-50 px-4 md:hidden">
+    <div id="mobile-nav" class="bottom-nav-shell glass mx-auto grid max-w-sm grid-cols-4 rounded-[2rem] p-2">
+      <div id="bottom-indicator" class="bottom-indicator"></div>
+      <button class="bottom-nav-button active flex flex-col items-center gap-1 rounded-[1.4rem] px-2 py-3 text-[11px] font-semibold uppercase tracking-[0.18em]" data-target="home" type="button">
+        <i class="fa-solid fa-house text-base"></i>
+        <span>Home</span>
+      </button>
+      <button class="bottom-nav-button flex flex-col items-center gap-1 rounded-[1.4rem] px-2 py-3 text-[11px] font-semibold uppercase tracking-[0.18em]" data-target="services" type="button">
+        <i class="fa-solid fa-briefcase text-base"></i>
+        <span>Services</span>
+      </button>
+      <button class="bottom-nav-button flex flex-col items-center gap-1 rounded-[1.4rem] px-2 py-3 text-[11px] font-semibold uppercase tracking-[0.18em]" data-target="venue" type="button">
+        <i class="fa-solid fa-star text-base"></i>
+        <span>Venue</span>
+      </button>
+      <button class="bottom-nav-button flex flex-col items-center gap-1 rounded-[1.4rem] px-2 py-3 text-[11px] font-semibold uppercase tracking-[0.18em]" data-target="contact" type="button">
+        <i class="fa-solid fa-phone text-base"></i>
+        <span>Contact</span>
+      </button>
+    </div>
+  </nav>
+
+  <script>
+    const sectionIds = ['home', 'services', 'venue', 'contact'];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+    const desktopLinks = [...document.querySelectorAll('.desktop-link')];
+    const bottomButtons = [...document.querySelectorAll('.bottom-nav-button')];
+    const bottomIndicator = document.getElementById('bottom-indicator');
+    const mobileNav = document.getElementById('mobile-nav');
+    const showcaseVideo = document.getElementById('showcase-video');
+    const volumeToggle = document.getElementById('volume-toggle');
+    const clickSound = document.getElementById('click-sound');
+
+    function moveIndicator(button) {
+      if (!button || !bottomIndicator || !mobileNav) return;
+
+      const width = button.offsetWidth - 2;
+      const x = button.offsetLeft + 1;
+
+      bottomIndicator.style.width = `${width}px`;
+      bottomIndicator.style.transform = `translateX(${x}px)`;
+      bottomIndicator.style.opacity = '1';
+    }
+
+    function setActive(targetId) {
+      desktopLinks.forEach((link) => {
+        link.classList.toggle('active', link.dataset.target === targetId);
+      });
+
+      bottomButtons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.target === targetId);
+      });
+
+      const activeButton = bottomButtons.find((button) => button.dataset.target === targetId);
+      if (activeButton) {
+        moveIndicator(activeButton);
+      }
+    }
+
+    function scrollToSection(targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      const offset = window.innerWidth >= 768 ? 104 : 28;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      setActive(targetId);
+    }
+
+    function getCurrentSection() {
+      const marker = window.scrollY + window.innerHeight * 0.42;
+      let current = sectionIds[0];
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= marker) {
+          current = section.id;
+        }
+      });
+
+      return current;
+    }
+
+    [...desktopLinks, ...bottomButtons].forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        scrollToSection(item.dataset.target);
+      });
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    document.querySelectorAll('.reveal:not(.is-visible)').forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    let ticking = false;
+
+    function syncScrollSpy() {
+      setActive(getCurrentSection());
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(syncScrollSpy);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      setActive(getCurrentSection());
+    });
+
+    if (showcaseVideo) {
+      showcaseVideo.addEventListener('ended', () => {
+        showcaseVideo.currentTime = 0;
+        showcaseVideo.play().catch(() => {});
+      });
+    }
+
+    if (showcaseVideo && volumeToggle) {
+      const syncVolumeButton = () => {
+        const isOn = !showcaseVideo.muted;
+        volumeToggle.classList.toggle('is-on', isOn);
+        volumeToggle.setAttribute('aria-pressed', String(isOn));
+        volumeToggle.setAttribute('aria-label', isOn ? 'Turn sound off' : 'Turn sound on');
+      };
+
+      volumeToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        showcaseVideo.muted = !showcaseVideo.muted;
+        showcaseVideo.play().catch(() => {});
+        volumeToggle.classList.remove('pulse');
+        void volumeToggle.offsetWidth;
+        volumeToggle.classList.add('pulse');
+        syncVolumeButton();
+      });
+
+      volumeToggle.addEventListener('animationend', () => {
+        volumeToggle.classList.remove('pulse');
+      });
+
+      syncVolumeButton();
+    }
+
+    if (clickSound) {
+      clickSound.volume = 0.16;
+      document.addEventListener('click', () => {
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {});
+      });
+    }
+
+    window.addEventListener('load', () => {
+      setActive(getCurrentSection());
+      if (showcaseVideo) {
+        showcaseVideo.play().catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>
