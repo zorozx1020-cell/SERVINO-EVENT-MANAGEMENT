@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVINO EVENT MANAGEMENT - Premium Events in Malappuram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nothing You Could Do', cursive;
+            overflow-x: hidden;
+            background: #000000;
+            color: white;
+        }
+
+        /* Liquid Background Animation - Purple/Violet Gradient */
+        .liquid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 35%, #4a2c70 65%, #7b5a9e 100%);
+            overflow: hidden;
+        }
+
+        /* Ethereal glow from top center */
+        .liquid-background::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, rgba(200, 180, 255, 0.3) 0%, rgba(180, 150, 255, 0.15) 30%, transparent 70%);
+            filter: blur(80px);
+            opacity: 0.6;
+        }
+
+        /* Ghostly text/shape impression */
+        .liquid-background::after {
+            content: 'SERVINO';
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12rem;
+            font-weight: 900;
+            color: rgba(230, 220, 255, 0.02);
+            filter: blur(30px);
+            opacity: 0.3;
+            pointer-events: none;
+            letter-spacing: 0.5rem;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.4;
+            animation: float 30s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(180, 140, 255, 0.4), rgba(200, 160, 255, 0.3));
+            top: -10%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, rgba(160, 120, 230, 0.35), rgba(190, 150, 255, 0.25));
+            top: 60%;
+            right: -10%;
+            animation-delay: -10s;
+        }
+
+        .blob-3 {
+            width: 550px;
+            height: 550px;
+            background: linear-gradient(135deg, rgba(140, 100, 210, 0.3), rgba(170, 130, 240, 0.2));
+            bottom: -15%;
+            left: 35%;
+            animation-delay: -20s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            33% {
+                transform: translate(150px, -150px) scale(1.2) rotate(120deg);
+            }
+            66% {
+                transform: translate(-100px, 100px) scale(0.9) rotate(240deg);
+            }
+        }
+
+        /* Floating Animation for all elements */
+        @keyframes floatElement {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .float-animate {
+            animation: floatElement 3s ease-in-out infinite;
+        }
+
+        .float-animate-slow {
+            animation: floatElement 4s ease-in-out infinite;
+        }
+
+        .float-animate-slower {
+            animation: floatElement 5s ease-in-out infinite;
+        }
+
+        /* Glassmorphism Styles */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(8, 200, 242, 0.2);
+            box-shadow: 0 8px 32px rgba(8, 200, 242, 0.1);
+        }
+
+        .glass-strong {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(8, 200, 242, 0.3);
+            box-shadow: 0 8px 32px rgba(8, 200, 242, 0.15);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(8, 200, 242, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* Mobile Bottom Navigation - FIXED */
+        .mobile-nav {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+            display: none;
+        }
+
+        .nav-item {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Animated Red Indicator - FIXED */
+        .nav-indicator {
+            position: absolute;
+            height: 60px;
+            width: 60px;
+            background: linear-gradient(135deg, #dc2626, #ef4444, #dc2626);
+            background-size: 200% 200%;
+            border-radius: 50%;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.6),
+                        0 0 40px rgba(220, 38, 38, 0.4),
+                        inset 0 0 20px rgba(255, 255, 255, 0.1);
+            animation: pulseGlow 2s ease-in-out infinite, backgroundShift 3s ease infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(220, 38, 38, 0.6),
+                            0 0 40px rgba(220, 38, 38, 0.4),
+                            inset 0 0 20px rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(220, 38, 38, 0.8),
+                            0 0 60px rgba(220, 38, 38, 0.6),
+                            0 0 80px rgba(220, 38, 38, 0.3),
+                            inset 0 0 30px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Hero Section */
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #08C8F2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Service Cards */
+        .service-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(8, 200, 242, 0.1);
+            border-color: rgba(8, 200, 242, 0.4);
+            box-shadow: 0 12px 40px rgba(8, 200, 242, 0.2);
+        }
+
+        /* CTA Buttons */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        /* Floating CTA Buttons */
+        .floating-cta {
+            position: fixed;
+            right: 20px;
+            z-index: 999;
+            display: none;
+        }
+
+        .floating-cta.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Video Container Glass Effect */
+        .video-container {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(8, 200, 242, 0.3);
+            box-shadow: 0 8px 32px rgba(8, 200, 242, 0.2);
+        }
+
+        .video-container video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Join CTA Section Glass */
+        .join-cta {
+            background: linear-gradient(135deg, rgba(8, 200, 242, 0.1), rgba(8, 200, 242, 0.05));
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 2px solid rgba(8, 200, 242, 0.3);
+            box-shadow: 0 8px 32px rgba(8, 200, 242, 0.2);
+        }
+
+        /* Welcome Text */
+        .welcome-text {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            background: linear-gradient(135deg, #08C8F2, #ffffff, #08C8F2);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-nav {
+                display: block;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .floating-cta {
+                display: block !important;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #08C8F2, #0891b2);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #0891b2, #08C8F2);
+        }
+
+        /* Volume Icon Animation */
+        #volumeIcon {
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        #volumeBtn:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+    <!-- Click Sound -->
+    <audio id="clickSound" preload="auto">
+        <source src="https://cdn.discordapp.com/attachments/1479849665334612110/1479923472124608604/denielcz-immersivecontrol-button-click-sound-463065.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Liquid Background -->
+    <div class="liquid-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Welcome Section -->
+    <section class="min-h-screen flex items-center justify-center px-4" style="background: linear-gradient(135deg, #4a1942 0%, #6b2461 50%, #d084a7 100%);">
+        <div class="text-center max-w-5xl">
+            <div class="fade-in float-animate">
+                <h1 class="text-5xl md:text-7xl font-bold mb-8" style="background: linear-gradient(135deg, #c084fc, #f0abfc, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 40px rgba(192, 132, 252, 0.6), 0 0 80px rgba(240, 171, 252, 0.4); filter: drop-shadow(0 4px 20px rgba(192, 132, 252, 0.5));">
+                    Servino Events Management
+                </h1>
+                <p class="text-gray-200 text-lg md:text-xl mb-4 italic leading-relaxed max-w-4xl mx-auto">
+                    A high-quality 3D typography design styled like translucent frosted glass tubes. The text features a soft internal violet and pink neon glow, reflecting on a dark purple gradient background.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg mb-10 leading-relaxed max-w-4xl mx-auto">
+                    The aesthetic is glassmorphic, with subtle highlights, soft shadows, and a clean, modern luxury feel. 8k resolution, cinematic lighting.
+                </p>
+                <a href="#home" class="cta-button clickable inline-block bg-gradient-to-r from-violet-500 via-pink-500 to-violet-600 hover:from-violet-600 hover:via-pink-600 hover:to-violet-700 text-white px-12 py-6 rounded-full font-semibold text-2xl shadow-xl shadow-violet-500/50">
+                    Explore Our Magic
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desktop Navigation - NO LOGO -->
+    <nav class="desktop-nav glass rounded-full px-8 py-4">
+        <div class="flex justify-center items-center gap-8">
+            <a href="#home" class="text-white hover:text-cyan-400 transition font-medium clickable">Home</a>
+            <a href="#about" class="text-white hover:text-cyan-400 transition font-medium clickable">About</a>
+            <a href="#services" class="text-white hover:text-cyan-400 transition font-medium clickable">Services</a>
+            <a href="#showcase" class="text-white hover:text-cyan-400 transition font-medium clickable">Showcase</a>
+            <a href="#gallery" class="text-white hover:text-cyan-400 transition font-medium clickable">Gallery</a>
+            <a href="#contact" class="text-white hover:text-cyan-400 transition font-medium clickable">Contact</a>
+            <a href="https://www.instagram.com/servino_events_management?igsh=MWd5YmhvMmtmYWFoMg==" target="_blank" class="text-white hover:text-cyan-400 transition clickable" title="Follow us on Instagram">
+                <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="tel:+918921575385" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-full transition font-medium clickable">
+                <i class="fas fa-phone mr-2"></i>Call Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation with Animated Red Indicator -->
+    <nav class="mobile-nav glass-strong rounded-full p-2">
+        <div class="relative flex justify-around items-center">
+            <div class="nav-indicator" id="navIndicator"></div>
+            <a href="#home" class="nav-item flex flex-col items-center justify-center w-16 h-16 text-white clickable" data-index="0">
+                <i class="fas fa-home text-xl"></i>
+            </a>
+            <a href="#about" class="nav-item flex flex-col items-center justify-center w-16 h-16 text-white clickable" data-index="1">
+                <i class="fas fa-info-circle text-xl"></i>
+            </a>
+            <a href="#services" class="nav-item flex flex-col items-center justify-center w-16 h-16 text-white clickable" data-index="2">
+                <i class="fas fa-briefcase text-xl"></i>
+            </a>
+            <a href="#showcase" class="nav-item flex flex-col items-center justify-center w-16 h-16 text-white clickable" data-index="3">
+                <i class="fas fa-video text-xl"></i>
+            </a>
+            <a href="#contact" class="nav-item flex flex-col items-center justify-center w-16 h-16 text-white clickable" data-index="4">
+                <i class="fas fa-envelope text-xl"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Floating CTA Buttons (Desktop) - Enhanced Premium Design -->
+    <div class="floating-cta" style="top: 40%;">
+        <!-- Call Midhlaj Button -->
+        <a href="tel:+918921575385" class="group relative overflow-hidden cta-button clickable flex items-center gap-4 bg-gradient-to-r from-yellow-400 via-pink-500 to-violet-600 text-white px-8 py-5 rounded-2xl mb-4 shadow-2xl hover:shadow-violet-500/70 transition-all duration-500 hover:scale-105 border border-white/30 backdrop-blur-xl">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600 via-pink-500 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                <i class="fas fa-phone-alt text-2xl"></i>
+            </div>
+            <div class="relative z-10 flex flex-col items-start">
+                <span class="text-xs opacity-80">Call Now</span>
+                <span class="text-lg font-extrabold tracking-wide">Midhlaj</span>
+            </div>
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+        </a>
+
+        <!-- Call Nizam Button -->
+        <a href="tel:+917907840991" class="group relative overflow-hidden cta-button clickable flex items-center gap-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-white px-8 py-5 rounded-2xl mb-4 shadow-2xl hover:shadow-cyan-500/70 transition-all duration-500 hover:scale-105 border border-white/30 backdrop-blur-xl">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                <i class="fas fa-phone-alt text-2xl"></i>
+            </div>
+            <div class="relative z-10 flex flex-col items-start">
+                <span class="text-xs opacity-80">Call Now</span>
+                <span class="text-lg font-extrabold tracking-wide">Nizam</span>
+            </div>
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+        </a>
+
+        <!-- WhatsApp Midhlaj Button -->
+        <a href="https://wa.me/+918921575385" target="_blank" class="group relative overflow-hidden cta-button clickable flex items-center gap-4 bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 text-white px-8 py-5 rounded-2xl mb-4 shadow-2xl hover:shadow-green-500/70 transition-all duration-500 hover:scale-105 border border-white/30 backdrop-blur-xl">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-600 via-emerald-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </div>
+            <div class="relative z-10 flex flex-col items-start">
+                <span class="text-xs opacity-80">Chat on</span>
+                <span class="text-lg font-extrabold tracking-wide">WhatsApp</span>
+            </div>
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+        </a>
+
+        <!-- Follow Instagram Button -->
+        <a href="https://www.instagram.com/servino_events_management" target="_blank" class="group relative overflow-hidden cta-button clickable flex items-center gap-4 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600 text-white px-8 py-5 rounded-2xl shadow-2xl hover:shadow-pink-500/70 transition-all duration-500 hover:scale-105 border border-white/30 backdrop-blur-xl">
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                <i class="fab fa-instagram text-2xl"></i>
+            </div>
+            <div class="relative z-10 flex flex-col items-start">
+                <span class="text-xs opacity-80">Follow on</span>
+                <span class="text-lg font-extrabold tracking-wide">Instagram</span>
+            </div>
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-24">
+        <div class="text-center max-w-5xl">
+            <div class="fade-in float-animate-slow">
+                <div class="mb-8 flex justify-center">
+                    <img src="https://raw.githubusercontent.com/zorozx1020-cell/SERVINO-EVENT-MANAGEMENT/4292133968c4c542d44c4139805e13adbdc48073/573311407_17902752153295109_6170009152305214716_n-Picsart-AiImageEnhancer.png" alt="SERVINO EVENT MANAGEMENT" class="h-64 md:h-80 w-auto drop-shadow-2xl">
+                </div>
+                <h1 class="hero-title mb-6">SERVINO EVENT MANAGEMENT</h1>
+                <p class="text-white text-xl md:text-2xl mb-4 font-light">Creating Unforgettable Moments</p>
+                <p class="text-gray-300 text-lg mb-8">Kottakkal, Malappuram</p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="#services" class="cta-button clickable bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl">
+                        Explore Services
+                    </a>
+                    <a href="#contact" class="cta-button clickable glass text-white px-8 py-4 rounded-full font-semibold text-lg">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA Section -->
+    <section class="px-4 py-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="join-cta rounded-3xl p-8 md:p-12 text-center fade-in float-animate">
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Create Magic Together?</h3>
+                <p class="text-gray-300 text-lg mb-8">Join hundreds of satisfied clients who trusted us with their special moments</p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="https://www.instagram.com/servino_events_management?igsh=MWd5YmhvMmtmYWFoMg==" target="_blank" class="cta-button clickable bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl">
+                        <i class="fab fa-instagram mr-2"></i>Follow on Instagram
+                    </a>
+                    <a href="tel:+918921575385" class="cta-button clickable bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl">
+                        <i class="fas fa-phone mr-2"></i>Call Us Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="max-w-6xl w-full">
+            <div class="text-center mb-16 fade-in float-animate-slow">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">About Us</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-3xl p-8 fade-in float-animate">
+                    <i class="fas fa-trophy text-cyan-500 text-5xl mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-4">Premium Event Solutions</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        SERVINO EVENT MANAGEMENT is your trusted partner for creating extraordinary events in Malappuram. With years of experience and a dedicated team led by Muhammad Midhlaj and Muhammad Nizam, we transform your vision into reality with precision and elegance.
+                    </p>
+                </div>
+                <div class="glass-card rounded-3xl p-8 fade-in float-animate-slower">
+                    <i class="fas fa-award text-cyan-500 text-5xl mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-4">Why Choose Us</h3>
+                    <ul class="text-gray-300 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cyan-500 mr-3 mt-1"></i>
+                            <span>Professional and experienced team</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cyan-500 mr-3 mt-1"></i>
+                            <span>Comprehensive event services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cyan-500 mr-3 mt-1"></i>
+                            <span>Attention to detail and quality</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cyan-500 mr-3 mt-1"></i>
+                            <span>Competitive pricing and transparency</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="max-w-6xl w-full">
+            <div class="text-center mb-16 fade-in float-animate-slow">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-300 text-lg">Comprehensive event solutions tailored to your needs</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="service-card glass-card rounded-3xl p-8 text-center fade-in clickable float-animate">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-concierge-bell text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Hospitality Management</h3>
+                    <p class="text-gray-300">Expert hospitality services ensuring your guests feel welcomed and valued throughout the event.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card glass-card rounded-3xl p-8 text-center fade-in clickable float-animate-slow">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-tie text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Service Boys</h3>
+                    <p class="text-gray-300">Professional and well-trained service staff to assist with all event requirements seamlessly.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card glass-card rounded-3xl p-8 text-center fade-in clickable float-animate-slower">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-paint-brush text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Stage Decoration</h3>
+                    <p class="text-gray-300">Stunning stage setups and decorations that create the perfect ambiance for your event.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card glass-card rounded-3xl p-8 text-center fade-in clickable float-animate">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-utensils text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Food Service</h3>
+                    <p class="text-gray-300">Delicious catering options with impeccable service to delight your guests' palates.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card glass-card rounded-3xl p-8 text-center fade-in clickable float-animate-slow">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-camera text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Photography & Videography</h3>
+                    <p class="text-gray-300">Capture every precious moment with our professional photography and videography services.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card glass-card rounded-3xl p-8 text-center fade-in clickable float-animate-slower">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-receipt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Counter Setting</h3>
+                    <p class="text-gray-300">Elegant counter arrangements for reception, registration, and service points at your event.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key People Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="max-w-6xl w-full">
+            <div class="text-center mb-16 fade-in float-animate-slow">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Leadership</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-yellow-500 via-pink-500 to-violet-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-300 text-lg">Meet the visionaries behind SERVINO</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Person 1: Muhammad Midhlaj -->
+                <div class="glass-card rounded-3xl p-8 fade-in float-animate hover:scale-105 transition-all duration-300 clickable">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-yellow-400 via-pink-500 to-violet-600 p-1">
+                        <div class="w-full h-full rounded-full bg-black flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 via-pink-500 to-violet-600"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-violet-600" style="background-size: 200% auto; animation: shimmer 3s linear infinite;">
+                        MUHAMMAD MIDHLAJ
+                    </h3>
+                    <p class="text-gray-400 mb-6 text-lg">Co-Founder & Event Director</p>
+                    <div class="space-y-3">
+                        <a href="tel:+918921575385" class="cta-button clickable block bg-gradient-to-r from-yellow-500 via-pink-500 to-violet-600 hover:from-yellow-600 hover:via-pink-600 hover:to-violet-700 text-white px-6 py-3 rounded-full font-semibold text-center shadow-lg">
+                            <i class="fas fa-phone mr-2"></i>+91 8921575385
+                        </a>
+                        <a href="https://wa.me/+918921575385" target="_blank" class="cta-button clickable block bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-full font-semibold text-center shadow-lg">
+                            <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Person 2: Muhammad Nizam -->
+                <div class="glass-card rounded-3xl p-8 fade-in float-animate-slow hover:scale-105 transition-all duration-300 clickable">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-violet-600 via-pink-500 to-yellow-400 p-1">
+                        <div class="w-full h-full rounded-full bg-black flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl text-transparent bg-clip-text bg-gradient-to-br from-violet-600 via-pink-500 to-yellow-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-500 to-yellow-400" style="background-size: 200% auto; animation: shimmer 3s linear infinite;">
+                        MUHAMMAD NIZAM
+                    </h3>
+                    <p class="text-gray-400 mb-6 text-lg">Co-Founder & Operations Head</p>
+                    <div class="space-y-3">
+                        <a href="tel:+917907840991" class="cta-button clickable block bg-gradient-to-r from-violet-600 via-pink-500 to-yellow-400 hover:from-violet-700 hover:via-pink-600 hover:to-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-center shadow-lg">
+                            <i class="fas fa-phone mr-2"></i>+91 7907840991
+                        </a>
+                        <a href="https://wa.me/+917907840991" target="_blank" class="cta-button clickable block bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-full font-semibold text-center shadow-lg">
+                            <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase Section -->
+    <section id="showcase" class="min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="max-w-6xl w-full">
+            <div class="text-center mb-16 fade-in float-animate-slow">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Event Showcase</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-300 text-lg">Experience the magic we create</p>
+            </div>
+            <div class="fade-in float-animate">
+                <div class="video-container mb-8 relative">
+                    <video id="showcaseVideo" autoplay loop muted playsinline class="w-full rounded-3xl">
+                        <source src="https://ik.imagekit.io/servino/VN20260310_035625.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Volume Control Button -->
+                    <button id="volumeBtn" class="absolute bottom-6 right-6 w-14 h-14 rounded-full glass-strong border-2 border-cyan-400/50 flex items-center justify-center text-white hover:scale-110 hover:border-cyan-400 transition-all duration-300 shadow-xl hover:shadow-cyan-400/50 clickable" style="backdrop-filter: blur(10px);">
+                        <i id="volumeIcon" class="fas fa-volume-mute text-2xl"></i>
+                    </button>
+                </div>
+                <div class="glass-card rounded-3xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">Architectural Elegance Meets Modern Design</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        If you are looking for a venue that feels both intimate and grand, this is it. The design uses architectural white arches to create a sense of depth, layered with a cascading ceiling of crimson and white florals that look like they're floating.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        What makes it special is the lighting—the warm candle-style pillars at the base perfectly complement the hanging chandeliers, giving the whole space a soft, cinematic glow. It's a perfect mix of traditional elegance and modern 3D world aesthetics. It doesn't just look like a stage; it feels like an immersive environment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="max-w-6xl w-full">
+            <div class="text-center mb-16 fade-in float-animate-slow">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Event Gallery</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-300 text-lg">Moments we've crafted with passion and precision</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="glass-card rounded-2xl overflow-hidden aspect-square fade-in hover:scale-105 transition-transform duration-300 clickable float-animate">
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-transparent">
+                        <i class="fas fa-image text-white text-5xl opacity-50"></i>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden aspect-square fade-in hover:scale-105 transition-transform duration-300 clickable float-animate-slow">
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-transparent">
+                        <i class="fas fa-image text-white text-5xl opacity-50"></i>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden aspect-square fade-in hover:scale-105 transition-transform duration-300 clickable float-animate-slower">
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-transparent">
+                        <i class="fas fa-image text-white text-5xl opacity-50"></i>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden aspect-square fade-in hover:scale-105 transition-transform duration-300 clickable float-animate">
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-transparent">
+                        <i class="fas fa-image text-white text-5xl opacity-50"></i>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden aspect-square fade-in hover:scale-105 transition-transform duration-300 clickable float-animate-slow">
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-transparent">
+                        <i class="fas fa-image text-white text-5xl opacity-50"></i>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden aspect-square fade-in hover:scale-105 transition-transform duration-300 clickable float-animate-slower">
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-transparent">
+                        <i class="fas fa-image text-white text-5xl opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="max-w-6xl w-full">
+            <div class="text-center mb-16 fade-in float-animate-slow">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Get in Touch</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-300 text-lg">Let's create something extraordinary together</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-3xl p-8 fade-in float-animate">
+                    <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-semibold mb-1">Location</h4>
+                                <p class="text-gray-300">Kottakkal, Malappuram<br>Kerala, India</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-semibold mb-1">MUHAMMAD MIDHLAJ</h4>
+                                <a href="tel:+918921575385" class="text-gray-300 hover:text-cyan-400 transition block clickable">+91 8921575385</a>
+                                <a href="https://wa.me/+918921575385" target="_blank" class="text-gray-300 hover:text-cyan-400 transition block clickable">
+                                    <i class="fab fa-whatsapp mr-1"></i>WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-semibold mb-1">MUHAMMAD NIZAM</h4>
+                                <a href="tel:+917907840991" class="text-gray-300 hover:text-cyan-400 transition block clickable">+91 7907840991</a>
+                                <a href="https://wa.me/+917907840991" target="_blank" class="text-gray-300 hover:text-cyan-400 transition block clickable">
+                                    <i class="fab fa-whatsapp mr-1"></i>WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-8 border-t border-white/10">
+                        <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+                        <div class="flex gap-4">
+                            <a href="https://www.instagram.com/servino_events_management?igsh=MWd5YmhvMmtmYWFoMg==" target="_blank" class="w-10 h-10 bg-gradient-to-br from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 rounded-full flex items-center justify-center transition clickable">
+                                <i class="fab fa-instagram text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 rounded-full flex items-center justify-center transition clickable">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 rounded-full flex items-center justify-center transition clickable">
+                                <i class="fab fa-youtube text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-3xl p-8 fade-in float-animate-slower">
+                    <h3 class="text-2xl font-bold text-white mb-6">Quick Inquiry</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full bg-white/5 border border-cyan-500/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition clickable">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Phone Number" class="w-full bg-white/5 border border-cyan-500/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition clickable">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email Address" class="w-full bg-white/5 border border-cyan-500/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition clickable">
+                        </div>
+                        <div>
+                            <select class="w-full bg-white/5 border border-cyan-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition clickable">
+                                <option value="" class="bg-black">Select Service</option>
+                                <option value="hospitality" class="bg-black">Hospitality Management</option>
+                                <option value="service-boys" class="bg-black">Service Boys</option>
+                                <option value="stage" class="bg-black">Stage Decoration</option>
+                                <option value="food" class="bg-black">Food Service</option>
+                                <option value="photography" class="bg-black">Photography & Videography</option>
+                                <option value="counter" class="bg-black">Counter Setting</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea placeholder="Your Message" rows="4" class="w-full bg-white/5 border border-cyan-500/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition clickable"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-semibold py-4 rounded-xl transition clickable">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-strong mt-20 py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-white mb-2">SERVINO EVENT MANAGEMENT</h3>
+                <p class="text-gray-300">Creating Unforgettable Moments</p>
+            </div>
+            <div class="border-t border-white/10 pt-6">
+                <p class="text-gray-400">&copy; 2024 SERVINO Event Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Click sound effect
+        const clickSound = document.getElementById('clickSound');
+        const clickables = document.querySelectorAll('.clickable');
+        
+        clickables.forEach(element => {
+            element.addEventListener('click', () => {
+                clickSound.currentTime = 0;
+                clickSound.play().catch(e => console.log('Sound play failed:', e));
+            });
+        });
+
+        // FIXED: Bottom Navigation Scroll Spy
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.mobile-nav .nav-item');
+        const navIndicator = document.getElementById('navIndicator');
+
+        function updateNavIndicator() {
+            const scrollPos = window.scrollY + window.innerHeight / 2;
+            let activeIndex = 0;
+
+            sections.forEach((section, index) => {
+                if (index === 0) return; // Skip welcome section
+                
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                    activeIndex = Math.min(index - 1, navItems.length - 1);
+                }
+            });
+
+            if (navIndicator && navItems[activeIndex]) {
+                const activeItem = navItems[activeIndex];
+                const parentRect = activeItem.parentElement.getBoundingClientRect();
+                const itemRect = activeItem.getBoundingClientRect();
+                const itemLeft = itemRect.left - parentRect.left;
+                
+                navIndicator.style.left = itemLeft + 'px';
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        function checkFadeIn() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize indicator position
+        window.addEventListener('load', () => {
+            updateNavIndicator();
+            checkFadeIn();
+        });
+
+        // Update on scroll
+        window.addEventListener('scroll', () => {
+            updateNavIndicator();
+            checkFadeIn();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', updateNavIndicator);
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will get back to you shortly.');
+            this.reset();
+        });
+
+        // Volume Control for Video
+        const showcaseVideo = document.getElementById('showcaseVideo');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const volumeIcon = document.getElementById('volumeIcon');
+        
+        let isMuted = true;
+        
+        volumeBtn.addEventListener('click', () => {
+            isMuted = !isMuted;
+            showcaseVideo.muted = isMuted;
+            
+            // Update icon with animation
+            volumeIcon.style.transform = 'scale(0)';
+            
+            setTimeout(() => {
+                if (isMuted) {
+                    volumeIcon.className = 'fas fa-volume-mute text-2xl';
+                } else {
+                    volumeIcon.className = 'fas fa-volume-up text-2xl';
+                }
+                volumeIcon.style.transform = 'scale(1)';
+            }, 150);
+        });
+    </script>
+</body>
+</html>
